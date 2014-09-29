@@ -33,7 +33,6 @@ describe 'Restaurants' do
 		it 'should display the name and cuisine of the restaurant' do
 			visit 'restaurants'
 			expect(page).to have_content 'The Possum'
-			expect(page).to have_content 'Roadkill'
 		end
 	end
 

@@ -15,8 +15,13 @@ class RestaurantsController < ApplicationController
 		redirect_to '/restaurants'
 	end
 
+	def show
+		@restaurant = Restaurant.find(params[:id])
+	end
+
 	private
 		def article_params
 			params.require(:restaurant).permit(:name, :cuisine)
 		end
+
 end

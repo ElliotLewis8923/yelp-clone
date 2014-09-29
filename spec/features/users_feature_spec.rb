@@ -13,6 +13,15 @@ describe 'Users' do
 			expect(page).to have_content "The Nag's Head"
 			expect(Restaurant.count).to eq 1
 		end
+
+		it 'can view an individual restaurant' do
+			Restaurant.create(name: 'Benets',
+												cuisine: 'Tasty snax')
+			visit '/restaurants'
+			click_link 'Benets'
+			expect(page).to have_content 'Tasty snax'
+		end
+
 	end
 
 end
