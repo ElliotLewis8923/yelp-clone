@@ -13,7 +13,8 @@ describe 'Restaurants' do
 	context 'are restaurants' do
 		
 		before do
-			Restaurant.create(name: 'McDonalds')
+			Restaurant.create(name: 'McDonalds',
+												cuisine: 'Slime')
 		end
 
 		it 'should show the restaurant' do
