@@ -1,6 +1,7 @@
 <% if @restaurants.any? %>
 	<% @restaurants.each do |restaurant| %>
-		<%= restaurant.name %>
+		<h1><%= restaurant.name %></h1>
+		<p><%= restaurant.cuisine %><p>
 	<% end %>
 <% else %>
 	<h1>No restaurants yet</h1>
