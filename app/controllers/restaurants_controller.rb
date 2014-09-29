@@ -10,8 +10,13 @@ class RestaurantsController < ApplicationController
 	end
 
 	def create
-		@restaurant = Restaurant.create(name: params[:name], cuisine: params[:cuisine])
+		@restaurant = Restaurant.new(article_params)
+		@restaurant.save
 		redirect_to '/restaurants'
 	end
 
+	private
+		def article_params
+			params.require(:restaurant).permit(:name, :cuisine)
+		end
 end
