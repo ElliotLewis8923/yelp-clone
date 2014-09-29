@@ -1,8 +1,9 @@
 require 'rails_helper'
 
-describe 'restaurants' do
+describe 'Restaurants' do
 	
 	context 'no restaurants have been added' do
+		
 		it 'should display a prompt to add a restaurant' do
 			visit '/restaurants'
 			expect(page).to have_content 'No restaurants'
@@ -10,6 +11,7 @@ describe 'restaurants' do
 	end
 
 	context 'are restaurants' do
+		
 		before do
 			Restaurant.create(name: 'McDonalds')
 		end
@@ -21,6 +23,7 @@ describe 'restaurants' do
 	end
 
 	context 'restaurants have a name and cuisine' do
+		
 		before do
 			Restaurant.create(name: 'The Possum',
 												cuisine: 'Roadkill')
@@ -32,4 +35,5 @@ describe 'restaurants' do
 			expect(page).to have_content 'Roadkill'
 		end
 	end
+
 end
