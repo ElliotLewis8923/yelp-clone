@@ -18,7 +18,7 @@ describe 'Reviews' do
 
 		it 'belongs to a restaurant' do
 			Review.create(restaurant: @restaurant,
-										text: 'meh',
+										text: 'wow',
 										rating: 3)
 			expect(@restaurant.reviews).not_to eq nil
 		end
@@ -32,18 +32,14 @@ describe 'Reviews' do
 		end
 
 		it 'can leave a review for a restaurant' do
-			visit '/restaurants'
-			click_link 'The Badger'
-			click_link 'Add a review'
-			fill_in 'text', :with => 'shit is wack yo'
-			select 1, :from => 'review_rating'
-			click_button 'Submit your review'
+			write_review_for('The Badger', 3)
 			expect(@restaurant.reviews.count).to eq 1
-			expect(page).to have_content 'shit is wack yo'
+			expect(page).to have_content 'shit'
 		end
 
 
 	end
+
 
 
 

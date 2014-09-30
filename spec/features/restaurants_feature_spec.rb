@@ -29,12 +29,12 @@ describe 'Restaurants' do
 		before(:each) do
 			Restaurant.create(name: 'Artisam',
 												cuisine: 'Titilating grub from the Orient')
+			visit '/restaurants'
 
 		end
 
 
 		it 'can add a restaurant' do
-			visit '/restaurants'
 			expect(Restaurant.count).to eq 1
 			click_link 'Add a new restaurant'
 			fill_in 'name', :with => "The Nag's Head"
@@ -45,14 +45,11 @@ describe 'Restaurants' do
 		end
 
 		it 'can view an individual restaurant, displaying its name and cuisine' do
-			visit '/restaurants'
 			click_link 'Artisam'
-
 			expect(page).to have_content 'Artisam Cuisine: Titilating grub from the Orient'
 		end
 
 		it 'can edit an existing restaurant' do
-			visit '/restaurants'
 			click_link 'Artisam'
 			click_link 'Edit'
 			fill_in 'name', :with => 'peng'
@@ -63,14 +60,29 @@ describe 'Restaurants' do
 		end
 
 		it 'can delete a restaurant' do
-			visit '/restaurants'
 			click_link 'Artisam'
 			click_link 'Delete'
 			expect(Restaurant.count).to eq 0
 			expect(page).to have_content 'Add a new restaurant'
 		end
 
-
 	end
+
+	context 'display' do
+
+		it 'each restaurant should display an average rating' do
+			visit '/restaurants'
+			Restaurant.create(name: 'McDonalds',
+												cuisine: 'Slime')
+			write_review_for('McDonalds', 3)
+			write_review_for('McDonalds', 1)
+			visit '/restaurants'
+			expect(page).to have_content 'Average rating: 2.0'
+		end
+	end
+
+
+
+
 
 end
