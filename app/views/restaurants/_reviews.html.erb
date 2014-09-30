@@ -1,0 +1,12 @@
+<h2>Reviews:</h2>
+<% @restaurant.reviews.each do |review| %>
+	<p>
+		<strong>Rating:</strong>
+		<%= review.rating %>
+	</p>
+
+	<p>
+		<strong>Comment:</strong>
+		<%= review.text %>
+	</p>
+	<% end %>

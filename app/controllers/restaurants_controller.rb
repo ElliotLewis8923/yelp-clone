@@ -1,17 +1,17 @@
 class RestaurantsController < ApplicationController
 	
-	skip_before_filter :verify_authenticity_token, :only => :create
+	#skip_before_filter :verify_authenticity_token, :only => :create
 
 	def index
 		@restaurants = Restaurant.all
 	end
 
 	def new
+		@restaurant = Restaurant.new
 	end
 
 	def create
-		@restaurant = Restaurant.new(restaurant_params)
-		@restaurant.save
+		@restaurant = Restaurant.create(restaurant_params)
 		redirect_to restaurants_path
 	end
 

@@ -39,7 +39,7 @@ describe 'Restaurants' do
 			click_link 'Add a new restaurant'
 			fill_in 'name', :with => "The Nag's Head"
 			fill_in 'cuisine', :with => "Slime"
-			click_button 'Submit new restaurant'
+			click_button 'Submit'
 			expect(Restaurant.count).to eq 2
 			expect(page).to have_content "The Nag's Head"
 		end
@@ -57,7 +57,7 @@ describe 'Restaurants' do
 			click_link 'Edit'
 			fill_in 'name', :with => 'peng'
 			fill_in 'cuisine', :with => 'yo'
-			click_button 'Submit changes'
+			click_button 'Submit'
 			expect(Restaurant.find_or_create_by(name: 'peng').cuisine).to eq 'yo'
 			expect(page).to have_content 'peng'
 		end

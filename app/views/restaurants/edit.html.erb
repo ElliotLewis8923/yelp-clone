@@ -1,5 +1,5 @@
-<h1>Editing @restaurant.name</h1>
-<%= form_for :restaurant, url: restaurant_path(@restaurant), method: :patch do |restaurant| %>
+<h1>Editing <%= @restaurant.name %></h1>
+
 	<section class='error explanation'>
 	<% if @restaurant.errors.any? %>
 		<h2><%= pluralize(@restaurant.errors.count, "error") %>
@@ -10,17 +10,6 @@
 			<% end %>
 		</ul>
 	</section>
-			<% end %>
-		<p>
-			<%= restaurant.label :name%><br>
-			<%= restaurant.text_field :name, id: 'name' %><br>
-		</p>
+	<% end %>
 
-		<p>
-			<%= restaurant.label :cuisine %><br>
-			<%= restaurant.text_field :cuisine, id: 'cuisine' %><br>
-		<p>
-
-			<%= restaurant.submit 'Submit changes', :name => 'submit' %>
-		</p>
-<% end %>
+<%= render 'form' %>
