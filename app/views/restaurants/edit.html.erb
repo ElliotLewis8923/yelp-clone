@@ -1,0 +1,26 @@
+<h1>Editing @restaurant.name</h1>
+<%= form_for :restaurant, url: restaurant_path(@restaurant), method: :patch do |restaurant| %>
+	<section class='error explanation'>
+	<% if @restaurant.errors.any? %>
+		<h2><%= pluralize(@restaurant.errors.count, "error") %>
+			prohibited @restaurant.name from being updated.</h2>
+		<ul>
+			<% @rstaurant.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+		</ul>
+	</section>
+			<% end %>
+		<p>
+			<%= restaurant.label :name%><br>
+			<%= restaurant.text_field :name, id: 'name' %><br>
+		</p>
+
+		<p>
+			<%= restaurant.label :cuisine %><br>
+			<%= restaurant.text_field :cuisine, id: 'cuisine' %><br>
+		<p>
+
+			<%= restaurant.submit 'Submit changes', :name => 'submit' %>
+		</p>
+<% end %>

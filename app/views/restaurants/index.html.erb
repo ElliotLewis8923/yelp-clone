@@ -5,7 +5,6 @@
 <% if @restaurants.any? %>
 	<% @restaurants.each do |restaurant| %>
 		<h1><a href='/restaurants/<%= restaurant.id %>'><%= restaurant.name %></a></h1>
-		<p><%= restaurant.cuisine %><p>
 	<% end %>
 <% else %>
 	<h1>No restaurants yet</h1>

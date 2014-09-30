@@ -6,16 +6,17 @@
 
 <%= form_for :restaurant, url: restaurants_path do |restaurant| %>
 	<p>
-		<%= restaurant.label :name, id:'name' %><br>
+		<%= restaurant.label :name %><br>
 		<%= restaurant.text_field :name, id:'name' %><br>
 	</p>
 
 	<p>
-		<%= restaurant.label :cuisine, id:'cuisine' %><br>
+		<%= restaurant.label :cuisine %><br>
 		<%= restaurant.text_field :cuisine, id:'cuisine' %><br>
 	</p>
 
 	<p>
-		<%= restaurant.submit :submit, id:'submit' %>
+
+		<%= restaurant.submit 'Submit new restaurant', :name => 'submit' %>
 	</p>
 <% end %>
