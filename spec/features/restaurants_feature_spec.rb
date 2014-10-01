@@ -59,6 +59,7 @@ describe 'Restaurants' do
 		it 'can delete a restaurant' do
 			click_link 'Artisam'
 			click_link 'Delete'
+
 			expect(page).to have_content 'Add a new restaurant'
 		end
 
@@ -73,7 +74,7 @@ describe 'Restaurants' do
 			write_review_for('McDonalds', 3)
 			write_review_for('McDonalds', 1)
 			visit '/restaurants'
-			expect(page).to have_content 'Average rating: 2.0'
+			expect(page).to have_content 'Average rating: ★★☆☆☆'
 		end
 	end
 

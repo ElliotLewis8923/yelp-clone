@@ -3,13 +3,12 @@
 <article class='review'>
 	<p>
 		<strong>Rating:</strong>
-		<%= review.rating %>
+		<%= star_rating(review.rating) %>
 	</p>
 
 	<p>
 		<strong>Comment:</strong>
 		<%= review.text %>
 	</p>
-	<%= link_to 'Edit', edit_review_path %>
 	<% end %>
 </article>
