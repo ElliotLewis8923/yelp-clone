@@ -15,4 +15,12 @@ describe ReviewsHelper, :type => :rails_helper
 			it 'returns 3 black stars and 2 white stars for 3' do
 				expect(helper.star_rating(3)).to eq '★★★☆☆'
 			end
+
+		context '#created' do
+
+			it "displays minutes elapsed if created within the hour" do
+				time = Time.now - 3000
+				expect(created(time)).to eq '50 minutes ago'
+			end
+		end
 end
