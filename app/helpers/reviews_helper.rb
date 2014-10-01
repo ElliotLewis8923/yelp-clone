@@ -15,6 +15,6 @@ def created(time)
 	else
 		num, unit = (elapsed/1440).to_s, 'days'
 	end
-	return "#{num} #{unit} ago"
+	return "#{num} #{unit} ago" # The method looks disgusting; I'm sure there's a way to do it recursively.
 
 end
