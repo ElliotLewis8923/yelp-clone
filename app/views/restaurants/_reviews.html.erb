@@ -1,5 +1,6 @@
 <h2>Reviews:</h2>
 <% @restaurant.reviews.each do |review| %>
+<article class='review'>
 	<p>
 		<strong>Rating:</strong>
 		<%= review.rating %>
@@ -9,4 +10,6 @@
 		<strong>Comment:</strong>
 		<%= review.text %>
 	</p>
+	<%= link_to 'Edit', edit_review_path %>
 	<% end %>
+</article>

@@ -9,7 +9,9 @@
 	<%= link_to 'Delete', restaurant_path, method: :delete, data: { confirm: 'Are you sure you would like to delete this restaurant?' } %>
 </p>
 <% if @restaurant.reviews %>
+<section class='reviews'>
 <%= render 'reviews' %>
+</section>
 <% end %>
 
 <%= link_to 'Add a review', new_restaurant_review_path(@restaurant) %>

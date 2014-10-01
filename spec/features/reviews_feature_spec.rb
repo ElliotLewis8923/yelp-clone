@@ -17,7 +17,10 @@ describe 'Reviews' do
 
 		it 'can delete a review' do
 			write_review_for('The Badger', 1)
-			
+			within('.reviews article:nth-child(2)') do
+				click_link('Edit')
+		end
+	end
 
 	context 'display' do
 			
@@ -28,10 +31,6 @@ describe 'Reviews' do
 
 
 	end
-
-
-
-
 
 	
 end
