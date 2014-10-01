@@ -28,5 +28,10 @@ describe ReviewsHelper, :type => :rails_helper
 				expect(created(time)).to eq '1 hour ago'
 			end
 
+			it 'displays days elapsed if created longer than a day ago' do
+				time = Time.now - 90000
+				expect(created(time)).to eq '1 day ago'
+			end
+
 		end
 end

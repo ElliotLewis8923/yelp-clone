@@ -9,12 +9,13 @@ end
 def created(time)
 	elapsed = ( (Time.now - time)/60 ).round
 	if elapsed < 60 
-		num, unit = elapsed.to_s, 'minutes'
-	elsif 60 < elapsed < 3600
-		num, unit = (elapsed/60).to_s, 'hours'
+		num, unit = elapsed, 'minutes'
+	elsif 60 < elapsed && 1440 > elapsed
+		num, unit = (elapsed/60), 'hours'
 	else
-		num, unit = (elapsed/1440).to_s, 'days'
+		num, unit = (elapsed/1440), 'days'
 	end
+	num == 1 ? unit.chop! : nil
 	return "#{num} #{unit} ago" # The method looks disgusting; I'm sure there's a way to do it recursively.
 
 end
