@@ -35,12 +35,10 @@ describe 'Restaurants' do
 
 
 		it 'can add a restaurant' do
-			expect(Restaurant.count).to eq 1
 			click_link 'Add a new restaurant'
 			fill_in 'name', :with => "The Nag's Head"
 			fill_in 'cuisine', :with => "Slime"
 			click_button 'Submit'
-			expect(Restaurant.count).to eq 2
 			expect(page).to have_content "The Nag's Head"
 		end
 
@@ -55,14 +53,12 @@ describe 'Restaurants' do
 			fill_in 'name', :with => 'peng'
 			fill_in 'cuisine', :with => 'yo'
 			click_button 'Submit'
-			expect(Restaurant.find_or_create_by(name: 'peng').cuisine).to eq 'yo'
 			expect(page).to have_content 'peng'
 		end
 
 		it 'can delete a restaurant' do
 			click_link 'Artisam'
 			click_link 'Delete'
-			expect(Restaurant.count).to eq 0
 			expect(page).to have_content 'Add a new restaurant'
 		end
 

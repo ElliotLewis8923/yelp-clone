@@ -2,27 +2,6 @@ require 'rails_helper'
 
 describe 'Reviews' do 
 
-	context 'creation' do
-
-		before(:each) do
-			@restaurant = Restaurant.create(name: 'The Badger',
-																			cuisine: 'Pub food')
-		end
-
-		it 'exists' do
-			Review.create(restaurant: @restaurant,
-										text: 'meh',
-										rating: 3)
-			expect(Review.count).to eq 1
-		end
-
-		it 'belongs to a restaurant' do
-			Review.create(restaurant: @restaurant,
-										text: 'wow',
-										rating: 3)
-			expect(@restaurant.reviews).not_to eq nil
-		end
-	end
 
 	context 'users' do
 
@@ -33,9 +12,19 @@ describe 'Reviews' do
 
 		it 'can leave a review for a restaurant' do
 			write_review_for('The Badger', 3)
-			expect(@restaurant.reviews.count).to eq 1
 			expect(page).to have_content 'shit'
 		end
+
+		it 'can delete a review' do
+			write_review_for('The Badger', 1)
+			
+
+	context 'display' do
+			
+		it 'displays the comment and rating of for a review'
+			#write_review_for('The Badger', 1)
+		end
+
 
 
 	end
