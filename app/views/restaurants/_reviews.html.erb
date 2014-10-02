@@ -4,11 +4,14 @@
 	<p>
 		<strong>Rating:</strong>
 		<%= star_rating(review.rating) %>
+		<%= review.endorsements.count %> endorsement
 	</p>
 
 	<p>
 		<strong>Comment:</strong>
 		<%= review.text %>
 	</p>
+	<%= link_to 'Endorse this review', review_endorsements_path(review), method: :post %>
+	<em>Posted: <%= created(review.created_at) %></em>
 	<% end %>
 </article>

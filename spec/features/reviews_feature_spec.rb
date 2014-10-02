@@ -14,15 +14,17 @@ describe 'Reviews' do
 			write_review_for('The Badger', 3)
 			expect(page).to have_content 'shit'
 		end
+	end
 
 		
 
 
 	context 'display' do
 			
-		it 'displays the comment and rating of for a review'
-			#write_review_for('The Badger', 1)
-		end
+		# it 'displays the comment and rating of for a review'
+		# 	write_review_for('The Badger', 1)
+
+		# end
 
 
 

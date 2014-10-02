@@ -6,7 +6,7 @@ class Restaurant < ActiveRecord::Base
 	def average_rating
 		if self.reviews.any?
 			memo = self.reviews.to_ary.inject(0) { |m, v| m + v.rating }
-			memo / self.reviews.count.to_f
+			memo / self.reviews.count
 		else
 			"Nobody has reviewed this restaurant yet."
 		end
